@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+# Requires an Area2D called CornerChecker with a CollisionShape2D. The origin has to be in the center of the character.
+
 export (int) var speed = 150
 export (int) var jump_speed = -350
 export (int) var gravity = 1000
