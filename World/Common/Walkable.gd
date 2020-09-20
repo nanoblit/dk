@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export (int) var speed = 300
-export (int) var jump_speed = -700
-export (int) var gravity = 2000
-export (int) var max_step_difference = 10;
+export (int) var speed = 150
+export (int) var jump_speed = -350
+export (int) var gravity = 1000
+export (int) var max_step_difference = 5;
 
 var direction: int = 0
 var jumping: bool = false

@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/Ladder/Ladder.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://World/Ladder/Ladder16x16.png" type="Texture" id=2]
+[ext_resource path="res://World/Ladder/Jumper.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 8, 80 )
 
 [node name="Ladder" type="Area2D"]
 script = ExtResource( 1 )
@@ -14,6 +15,64 @@ modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
 z_index = -1
 texture = ExtResource( 2 )
 
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -16 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -32 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -48 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -64 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -80 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -96 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -112 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite9" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -128 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Sprite10" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.811765, 0.164706, 0.513726 )
+position = Vector2( 0, -144 )
+z_index = -1
+texture = ExtResource( 2 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -72 )
 shape = SubResource( 1 )
+
+[node name="Jumper" parent="CollisionShape2D" instance=ExtResource( 3 )]
+position = Vector2( 0, -88 )
 [connection signal="body_entered" from="." to="." method="_on_Ladder_body_entered"]

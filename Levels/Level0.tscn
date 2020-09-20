@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/Common/Level.gd" type="Script" id=1]
+[ext_resource path="res://World/Floor/Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Ladder/Ladder.tscn" type="PackedScene" id=3]
+
+[node name="Level0" type="Node2D"]
+script = ExtResource( 1 )
+tag = "Level0"
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 152, 232 )
+
+[node name="Floor2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, 232 )
+
+[node name="Floor3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184, 232 )
+
+[node name="Floor4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 200, 232 )
+
+[node name="Floor5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 216, 232 )
+
+[node name="Floor10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 248, 232 )
+
+[node name="Floor11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 264, 232 )
+
+[node name="Floor6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 136, 232 )
+
+[node name="Floor7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 120, 232 )
+
+[node name="Floor9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 104, 232 )
+
+[node name="Floor12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 88, 232 )
+
+[node name="Floor25" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 232 )
+
+[node name="Floor26" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, 232 )
+
+[node name="Floor27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, 232 )
+
+[node name="Floor28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 232 )
+
+[node name="Floor8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 232, 232 )
+
+[node name="Floor13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 344, 232 )
+
+[node name="Floor14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 232 )
+
+[node name="Floor15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 376, 232 )
+
+[node name="Floor16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 392, 232 )
+
+[node name="Floor17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 408, 232 )
+
+[node name="Floor18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 440, 232 )
+
+[node name="Floor19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 456, 232 )
+
+[node name="Floor20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 328, 232 )
+
+[node name="Floor21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 312, 232 )
+
+[node name="Floor22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 296, 232 )
+
+[node name="Floor23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 280, 232 )
+
+[node name="Floor24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 424, 232 )
+
+[node name="Ladder" parent="." instance=ExtResource( 3 )]
+position = Vector2( 432, 216 )

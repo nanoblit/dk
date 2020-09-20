@@ -1,61 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://World/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://World/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://World/Ladder/Ladder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://NextLevelDetector/NextLevelDetector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Camera/Camera.tscn" type="PackedScene" id=2]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 255.719, 279.208 )
+position = Vector2( 40, 216 )
 
-[node name="Level" type="Node2D" parent="."]
-
-[node name="Floor" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 234.289, 382.802 )
-
-[node name="Floor2" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 298.289, 382.802 )
-
-[node name="Floor3" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 362.289, 382.802 )
-
-[node name="Floor4" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 426.289, 374.802 )
-
-[node name="Floor5" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 490.289, 366.802 )
-
-[node name="Floor10" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 490.289, 302.802 )
-
-[node name="Floor11" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 490.289, 238.802 )
-
-[node name="Floor6" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 170.289, 374.802 )
-
-[node name="Floor7" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 106.289, 366.802 )
-
-[node name="Floor9" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 106.289, 302.802 )
-
-[node name="Floor12" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 106.289, 238.802 )
-
-[node name="Floor8" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 554.289, 374.802 )
-
-[node name="Ladder" parent="." instance=ExtResource( 3 )]
-position = Vector2( 345.954, 317.861 )
-
-[node name="Ladder2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 345.954, 253.861 )
-
-[node name="Ladder3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 345.954, 189.861 )
-
-[node name="NextLevelDetector" parent="Ladder3" instance=ExtResource( 4 )]
-position = Vector2( -0.667419, -48.866 )
+[node name="Camera" parent="." instance=ExtResource( 2 )]
