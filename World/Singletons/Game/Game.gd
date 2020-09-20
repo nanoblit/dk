@@ -14,16 +14,6 @@ var current_level_y_position = 0
 var levels = []
 
 func _ready():
-	var level_instance = level0.instance()
-	get_tree().current_scene.add_child(level_instance)
-	level_instance.global_position.y = 1000
-	level_instance = level1.instance()
-	get_tree().current_scene.add_child(level_instance)
-	level_instance.global_position.y = 1000
-	level_instance = level2.instance()
-	get_tree().current_scene.add_child(level_instance)
-	level_instance.global_position.y = 1000
-	
 	next_level()
 	next_level()
 
@@ -32,6 +22,9 @@ func _process(delta):
 		get_tree().quit()
 
 func next_level():
+	call_deferred("next_level_deferred")
+
+func next_level_deferred():
 	# Doing this so we don't keep old levels
 	if levels.size() > 1:
 		delete_oldest_level()
@@ -45,9 +38,6 @@ func next_level():
 		spawn_level(level1)
 	elif last_level.tag == "Level1":
 		spawn_level(level2)
-	
-	for level in levels:
-		print(level.tag)
 	
 	current_level += 1
 	current_level_y_position -= level_height
