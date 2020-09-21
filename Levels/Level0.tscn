@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World/Common/Level.gd" type="Script" id=1]
 [ext_resource path="res://World/Floor/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Ladder/Ladder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Enemies/Goblin/Goblin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Fireball/FireballSpawner.tscn" type="PackedScene" id=5]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 1 )
@@ -94,3 +96,9 @@ position = Vector2( 424, 232 )
 
 [node name="Ladder" parent="." instance=ExtResource( 3 )]
 position = Vector2( 432, 216 )
+
+[node name="Goblin" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 216 )
+
+[node name="FireballSpawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 488, 208 )
