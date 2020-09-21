@@ -1,6 +1,10 @@
 extends "../../Common/Walkable.gd"
 
 var min_distance_from_player = 20
+var max_distance_from_player = 150
+
+# to detect if player is on the same level so they don't follow players on different levels
+var level = 0
 
 var attacking = false
 
@@ -17,12 +21,17 @@ func _process(delta: float) -> void:
 	if $Sprite.animation == "attack" && $Sprite.frame == $Sprite.frames.get_frame_count("attack") - 1:
 		attack_player()
 	
-	if !player: # Don't do anything if player's dead
+	# Stay idle if player's dead
+	if !player: 
 		direction = 0
 		attacking = false
 	else:
+		# Stay idle if player is too far
+		if Game.current_level - 1 != level || abs(player.global_position.x - global_position.x) > max_distance_from_player:
+			direction = 0
+			attacking = false
 		# Move in player's direction
-		if player.global_position.x < global_position.x - min_distance_from_player: 
+		elif player.global_position.x < global_position.x - min_distance_from_player: 
 			direction = -1
 			attacking = false
 		# Move in player's direction

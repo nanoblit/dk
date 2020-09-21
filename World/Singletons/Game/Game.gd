@@ -9,7 +9,8 @@ var current_level = -1
 
 var level_height = 176
 
-var current_level_y_position = 0
+# because it substracts level_height before spawning a level
+var current_level_y_position = level_height
 
 var levels = []
 
@@ -18,6 +19,7 @@ var fireball_speed = min_fireball_speed
 var fireball_speed_increase = 5
 
 func _ready():
+	randomize()
 	next_level()
 	next_level()
 
@@ -35,6 +37,10 @@ func next_level_deferred():
 	if levels.size() > 1:
 		delete_oldest_level()
 	
+	current_level += 1
+	current_level_y_position -= level_height
+	fireball_speed = min_fireball_speed
+	
 	var last_level
 	if (levels.size() > 0):
 		last_level = levels[0]
@@ -49,11 +55,7 @@ func next_level_deferred():
 	levels[0].get_node("FireballSpawner").set_disabled(true)
 	if levels.size() > 1:
 		levels[1].get_node("FireballSpawner").set_disabled(false)
-	
-	current_level += 1
-	current_level_y_position -= level_height
-	
-	fireball_speed = min_fireball_speed
+
 
 func spawn_level(level: Resource):
 	var level_instance = level.instance()
