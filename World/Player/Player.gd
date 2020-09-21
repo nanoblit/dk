@@ -2,20 +2,46 @@ extends "../Common/Walkable.gd"
 
 export (int) var ladder_speed = 100
 
-var on_ladder = false
+var on_ladder = null
+var stick_to_ladder = false
 var ladder_direction = 0
-var jumped_off_ladder = false
 
 func _physics_process(delta):
-	if (is_on_floor()):
-		jumped_off_ladder = false
-	if (on_ladder):
+	if (on_ladder != null && Input.is_action_pressed("walk_up_ladder") && !stick_to_ladder):
+		position.x = on_ladder.position.x
+		stick_to_ladder = true
+	if (on_ladder != null && stick_to_ladder):
 		moving = false
 		get_ladder_input()
 		do_ladder_movement(delta)
 	else:
 		moving = true
 		get_input()
+
+func _process(delta):
+	print(on_ladder)
+	
+	# Manage Animations
+	$Sprite.playing = true
+	
+	match (direction):
+		-1:
+			$Sprite.flip_h = true
+		1:
+			$Sprite.flip_h = false
+
+	if (is_on_floor()):
+		if (velocity.x == 0):
+			$Sprite.animation = "idle"
+		else:
+			$Sprite.animation = "walk"
+	else:
+		if (on_ladder != null && stick_to_ladder):
+			$Sprite.animation = "climb"
+			if (ladder_direction == 0):
+				$Sprite.playing = false
+		else:
+			$Sprite.animation = "jump"
 
 func get_input():
 	var new_direction = 0
@@ -30,6 +56,7 @@ func get_input():
 		jumping = true
 	else:
 		jumping = false
+	
 
 func get_ladder_input():
 	var new_ladder_direction = 0
@@ -42,19 +69,13 @@ func get_ladder_input():
 	
 	if Input.is_action_just_pressed("jump"):
 		jumping = true
-		on_ladder = false
-		jumped_off_ladder = true
+		on_ladder = null
 
 func do_ladder_movement(delta):
 	velocity.x = 0
 	velocity.y = ladder_direction * ladder_speed
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if (get_slide_count() > 0):
-		on_ladder = false
+		on_ladder = null
 	if (jumping):
 		velocity.y = jump_speed
-
-func enter_ladder(ladder: Node2D):
-	if (!is_on_floor() && !jumped_off_ladder) || on_ladder == true:
-		on_ladder = true
-		global_position.x = ladder.global_position.x
