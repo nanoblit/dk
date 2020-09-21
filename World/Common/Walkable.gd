@@ -14,7 +14,7 @@ var velocity = Vector2.ZERO
 onready var corner_checker = $CornerChecker
 
 func _ready():
-	pass
+	set_area_shape_to_our_shape()
 
 func _physics_process(delta):
 	if !moving:
@@ -39,6 +39,10 @@ func _physics_process(delta):
 		
 	if jumping && is_on_floor():
 		velocity.y = jump_speed
+
+func set_area_shape_to_our_shape():
+	var areasCollisionShape: CollisionShape2D = corner_checker.get_node("CollisionShape2D")
+	areasCollisionShape.shape = $CollisionShape2D.shape
 
 func move_if_place_is_free(new_position: Vector2):
 	corner_checker.global_position = new_position

@@ -76,4 +76,3 @@ shape = SubResource( 1 )
 [node name="Jumper" parent="CollisionShape2D" instance=ExtResource( 3 )]
 position = Vector2( 0, -88 )
 [connection signal="body_entered" from="." to="." method="_on_Ladder_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Ladder_body_exited"]
