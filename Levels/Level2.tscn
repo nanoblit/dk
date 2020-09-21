@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World/Floor/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Ladder/Ladder.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Common/Level.gd" type="Script" id=3]
+[ext_resource path="res://World/Fireball/FireballSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/EnemySpawner/EnemySpawner.tscn" type="PackedScene" id=5]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 3 )
@@ -10,6 +12,30 @@ tag = "Level2"
 
 [node name="Floor" parent="." instance=ExtResource( 1 )]
 position = Vector2( 24, 232 )
+
+[node name="Floor27" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 232 )
+
+[node name="Floor28" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 232 )
+
+[node name="EnemySpawner" parent="Floor28" instance=ExtResource( 5 )]
+position = Vector2( 328, -8 )
+
+[node name="EnemySpawner2" parent="Floor28" instance=ExtResource( 5 )]
+position = Vector2( 264, -8 )
+
+[node name="EnemySpawner3" parent="Floor28" instance=ExtResource( 5 )]
+position = Vector2( 200, -8 )
+
+[node name="EnemySpawner4" parent="Floor28" instance=ExtResource( 5 )]
+position = Vector2( 136, -8 )
+
+[node name="EnemySpawner5" parent="Floor28" instance=ExtResource( 5 )]
+position = Vector2( 72, -8 )
+
+[node name="EnemySpawner6" parent="Floor28" instance=ExtResource( 5 )]
+position = Vector2( 8, -8 )
 
 [node name="Floor2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 72, 232 )
@@ -88,3 +114,6 @@ position = Vector2( 456, 232 )
 
 [node name="Ladder" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 216 )
+
+[node name="FireballSpawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 488, 208 )

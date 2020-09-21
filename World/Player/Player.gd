@@ -19,7 +19,6 @@ func _physics_process(delta):
 		get_input()
 
 func _process(delta):
-	print(on_ladder)
 	
 	# Manage Animations
 	$Sprite.playing = true
