@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if disabled:
-		velocity.x = 0
+		direction = 0
 		return
 	# Attack the player on the last frame of the "attack" animation (will call it every frame but that's ok because of invisibility)
 	if $Sprite.animation == "attack" && $Sprite.frame == $Sprite.frames.get_frame_count("attack") - 1:

@@ -14,6 +14,7 @@ var accumulated_coins = 0
 
 func _physics_process(delta):
 	if disabled:
+		direction = 0
 		return
 	if (on_ladder != null && Input.is_action_pressed("walk_up_ladder") && !stick_to_ladder):
 		position.x = on_ladder.position.x
@@ -34,7 +35,6 @@ func _physics_process(delta):
 
 func _process(delta):
 	if disabled:
-		velocity.x = 0
 		return
 	# Manage Animations
 	$Sprite.playing = true
