@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://World/Common/Health.gd" type="Script" id=1]
 [ext_resource path="res://World/Player/Sprites/Climb/01.png" type="Texture" id=2]
@@ -9,11 +9,184 @@
 [ext_resource path="res://World/Player/Sprites/Walk/02.png" type="Texture" id=7]
 [ext_resource path="res://World/Player/Sprites/Walk/03.png" type="Texture" id=8]
 [ext_resource path="res://World/Player/Sprites/Idle/01.png" type="Texture" id=9]
-[ext_resource path="res://World/Player/Sprites/Jump/02.png" type="Texture" id=10]
-[ext_resource path="res://World/Player/Sprites/Jump/03.png" type="Texture" id=11]
-[ext_resource path="res://World/Player/Sprites/Jump/01.png" type="Texture" id=12]
+[ext_resource path="res://World/Player/Sprites/Knight-jump.png" type="Texture" id=10]
+[ext_resource path="res://World/Player/Sprites/Knight-backflip.png" type="Texture" id=11]
+[ext_resource path="res://World/Player/Sprites/Knight16x16-Blue-death.png" type="Texture" id=12]
 [ext_resource path="res://World/Player/Sprites/Walk/05.png" type="Texture" id=13]
 [ext_resource path="res://World/Player/Player.gd" type="Script" id=14]
+[ext_resource path="res://World/Player/Sprites/Knight-attack.png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 11 )
+region = Rect2( 16, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 11 )
+region = Rect2( 32, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 11 )
+region = Rect2( 48, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 11 )
+region = Rect2( 64, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 11 )
+region = Rect2( 80, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 12 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 12 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 12 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 12 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 12 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 12 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 12 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 12 )
+region = Rect2( 128, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 12 )
+region = Rect2( 144, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 12 )
+region = Rect2( 160, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 12 )
+region = Rect2( 176, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 12 )
+region = Rect2( 192, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 12 )
+region = Rect2( 208, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 12 )
+region = Rect2( 224, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 12 )
+region = Rect2( 240, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 12 )
+region = Rect2( 256, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 12 )
+region = Rect2( 272, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 12 )
+region = Rect2( 288, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 12 )
+region = Rect2( 304, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 12 )
+region = Rect2( 320, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 12 )
+region = Rect2( 336, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 12 )
+region = Rect2( 352, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 10 )
+region = Rect2( 16, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 10 )
+region = Rect2( 48, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 10 )
+region = Rect2( 64, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 10 )
+region = Rect2( 80, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 10 )
+region = Rect2( 96, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 24, 16 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 15 )
+region = Rect2( 24, 0, 24, 16 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 15 )
+region = Rect2( 48, 0, 24, 16 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 15 )
+region = Rect2( 72, 0, 24, 16 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 15 )
+region = Rect2( 96, 0, 24, 16 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 15 )
+region = Rect2( 120, 0, 24, 16 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -22,12 +195,22 @@ animations = [ {
 "name": "idle",
 "speed": 2.0
 }, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "trick",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ) ],
+"loop": false,
+"name": "death",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "walk",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": false,
 "name": "jump",
 "speed": 5.0
@@ -36,6 +219,11 @@ animations = [ {
 "loop": true,
 "name": "climb",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": false,
+"name": "attack",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -43,6 +231,12 @@ extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 8, 33.1061 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 15, 4 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -66,6 +260,22 @@ playing = true
 shape = SubResource( 2 )
 
 [node name="CornerChecker" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CornerChecker"]
 shape = SubResource( 3 )
+
+[node name="TrickDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrickDetector"]
+position = Vector2( 0, 25.0016 )
+shape = SubResource( 18 )
+
+[node name="AttackChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecker"]
+position = Vector2( 9.45806, -1.40466 )
+shape = SubResource( 19 )

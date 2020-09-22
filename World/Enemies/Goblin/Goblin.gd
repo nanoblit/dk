@@ -10,6 +10,8 @@ var attacking = false
 
 var damage = 1
 
+var disabled = false
+
 onready var player = get_tree().get_root().find_node("Player", true, false)
 
 func _ready() -> void:
@@ -17,12 +19,15 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	if disabled:
+		velocity.x = 0
+		return
 	# Attack the player on the last frame of the "attack" animation (will call it every frame but that's ok because of invisibility)
 	if $Sprite.animation == "attack" && $Sprite.frame == $Sprite.frames.get_frame_count("attack") - 1:
 		attack_player()
 	
 	# Stay idle if player's dead
-	if !player: 
+	if !player || player.disabled: 
 		direction = 0
 		attacking = false
 	else:
