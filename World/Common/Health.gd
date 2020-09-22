@@ -13,10 +13,12 @@ func _process(delta: float) -> void:
 	else:
 		sprite.visible = true
 
-func deal_damage(dmg: int):
+func deal_damage(dmg: int, push_direction: int = 0):
 	if !get_parent().disabled && $Timer.time_left == 0:
 		emit_signal("damage_dealt", dmg)
 		hp -= dmg
+		if push_direction != 0:
+			get_parent().push(push_direction)
 		if hp <= 0:
 			kill()
 		$Timer.start()

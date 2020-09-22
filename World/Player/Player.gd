@@ -76,7 +76,7 @@ func get_input():
 		$Sprite.animation = "attack"
 		attacking = true
 		for body in $AttackChecker.get_overlapping_bodies():
-			body.get_node("Health").deal_damage(1)
+			body.get_node("Health").deal_damage(1, sign(body.global_position.x - global_position.x))
 	
 	if $Sprite.frame == $Sprite.frames.get_frame_count("attack") - 1:
 		attacking = false

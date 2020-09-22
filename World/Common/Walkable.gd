@@ -23,7 +23,6 @@ func _physics_process(delta):
 		return
 	velocity.x = direction * speed
 	velocity.y += gravity * delta
-	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	for i in get_slide_count():
