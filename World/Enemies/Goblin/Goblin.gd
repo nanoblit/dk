@@ -20,7 +20,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if disabled:
-		velocity.x = 0
+		direction = 0
+		return
+	if !is_on_floor():
+		$Sprite.animation = "idle"
+		jumping = false
 		return
 	# Attack the player on the last frame of the "attack" animation (will call it every frame but that's ok because of invisibility)
 	if $Sprite.animation == "attack" && $Sprite.frame == $Sprite.frames.get_frame_count("attack") - 1:
@@ -66,3 +70,31 @@ func attack_player():
 	for body in bodies:
 		if body.name == "Player":
 			body.get_node("Health").deal_damage(damage)
+	
+func push(dir: int):
+	jumping = true
+	velocity.y = jump_speed
+	position.y -= 1
+	direction = dir
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

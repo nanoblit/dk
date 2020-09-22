@@ -14,6 +14,7 @@ var accumulated_coins = 0
 
 func _physics_process(delta):
 	if disabled:
+		direction = 0
 		return
 	if (on_ladder != null && Input.is_action_pressed("walk_up_ladder") && !stick_to_ladder):
 		position.x = on_ladder.position.x
@@ -34,7 +35,6 @@ func _physics_process(delta):
 
 func _process(delta):
 	if disabled:
-		velocity.x = 0
 		return
 	# Manage Animations
 	$Sprite.playing = true
@@ -76,7 +76,7 @@ func get_input():
 		$Sprite.animation = "attack"
 		attacking = true
 		for body in $AttackChecker.get_overlapping_bodies():
-			body.get_node("Health").deal_damage(1)
+			body.get_node("Health").deal_damage(1, sign(body.global_position.x - global_position.x))
 	
 	if $Sprite.frame == $Sprite.frames.get_frame_count("attack") - 1:
 		attacking = false
