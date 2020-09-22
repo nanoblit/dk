@@ -17,6 +17,9 @@ func _ready():
 		hp_obj_list.push_back(hp_inst)
 		call_deferred("add_child", hp_inst)
 		hp_inst.position.x = n * gap
+		hp_inst.index = n
+	
+	animate_hearts()
 
 func _process(delta):
 	if (!player_ready):
@@ -39,3 +42,7 @@ func take_damage(amount):
 		hp_obj_list[hp].get_child(0).frame = 0
 		if hp == 0:
 			break
+
+func animate_hearts():
+	yield (get_tree().create_timer(1), "timeout")
+	hp_obj_list[0].bump()
