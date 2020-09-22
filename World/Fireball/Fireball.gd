@@ -2,6 +2,9 @@ extends Area2D
 
 var direction = -1
 
+# to detect if player has made a trick on the fireball
+var tricked = false
+
 var destroyed = false
 
 func _ready() -> void:

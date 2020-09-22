@@ -9,6 +9,7 @@
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
 [node name="HUD" parent="Camera" instance=ExtResource( 3 )]
+z_index = 4096
 player_node = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource( 1 )]

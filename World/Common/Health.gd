@@ -8,13 +8,13 @@ onready var sprite = get_node("../Sprite")
 signal damage_dealt(amount)
 
 func _process(delta: float) -> void:
-	if $Timer.time_left > 0:
+	if !get_parent().disabled && $Timer.time_left > 0:
 		sprite.visible = int($Timer.time_left * 10) % 2 == 0
 	else:
 		sprite.visible = true
 
 func deal_damage(dmg: int):
-	if $Timer.time_left == 0:
+	if !get_parent().disabled && $Timer.time_left == 0:
 		emit_signal("damage_dealt", dmg)
 		hp -= dmg
 		if hp <= 0:
@@ -22,4 +22,6 @@ func deal_damage(dmg: int):
 		$Timer.start()
 
 func kill():
-	get_parent().queue_free()
+	var sprite = get_node("../Sprite")
+	sprite.animation = "death"
+	get_parent().disabled = true
