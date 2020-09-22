@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Dungeon Diving.ogg-660967d1cc842da551e3283eac85502a.oggstr"
+
+[deps]
+
+source_file="res://World/Audio/Dungeon Diving.ogg"
+dest_files=[ "res://.import/Dungeon Diving.ogg-660967d1cc842da551e3283eac85502a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=26.667
