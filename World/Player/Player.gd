@@ -36,6 +36,8 @@ func _physics_process(delta):
 func _process(delta):
 	if disabled:
 		return
+	if global_position.y > 240 + (Game.current_level - 2) * -Game.level_height:
+		$Health.kill()
 	# Manage Animations
 	$Sprite.playing = true
 	
@@ -125,6 +127,12 @@ func remove_coins(val) -> bool:
 	coins -= val
 	print("Coins: ", coins)
 	return true
+	
+func kill():
+	Game.deathPanel.visible = true
+	if coins > Game.best_score:
+		Game.best_score = coins
+	disabled = true
 	
 	
 	

@@ -26,4 +26,4 @@ func deal_damage(dmg: int, push_direction: int = 0):
 func kill():
 	var sprite = get_node("../Sprite")
 	sprite.animation = "death"
-	get_parent().disabled = true
+	get_parent().kill()
