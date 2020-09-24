@@ -12,6 +12,8 @@ var attacking = false
 var coins = 0
 var accumulated_coins = 0
 
+signal set_coins
+
 func _physics_process(delta):
 	if disabled:
 		direction = 0
@@ -120,6 +122,7 @@ func add_coins(val):
 	coins += val
 	accumulated_coins += val
 	print("Coins: ", coins)
+	emit_signal("set_coins", coins)
 
 func remove_coins(val) -> bool:
 	if coins < val:
@@ -133,33 +136,4 @@ func kill():
 	if coins > Game.best_score:
 		Game.best_score = coins
 	disabled = true
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
