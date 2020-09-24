@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/UI/Menus/ExitButton.gd" type="Script" id=1]
+[ext_resource path="res://World/UI/Menus/TryAgainButton.gd" type="Script" id=2]
+[ext_resource path="res://World/UI/Menus/ScoreLabel.gd" type="Script" id=3]
+[ext_resource path="res://World/UI/Menus/BestScoreLabel.gd" type="Script" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathLabel" type="RichTextLabel" parent="DeathPanel"]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+margin_left = 12.0
+margin_right = 12.0
+margin_bottom = 40.0
+text = "You Have Fallen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="RichTextLabel" parent="DeathPanel"]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+margin_left = 12.0
+margin_top = 16.0
+margin_right = 12.0
+margin_bottom = 56.0
+text = "Coins Earned: 0"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BestScoreLabel" type="RichTextLabel" parent="DeathPanel"]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+margin_left = 12.0
+margin_top = 32.0
+margin_right = 12.0
+margin_bottom = 72.0
+text = "Best Score: 0"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgainButton" type="Button" parent="DeathPanel"]
+margin_left = 12.0
+margin_top = 74.0
+margin_right = 43.0
+margin_bottom = 94.0
+text = "Try again"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="DeathPanel"]
+margin_left = 156.0
+margin_top = 74.0
+margin_right = 191.0
+margin_bottom = 94.0
+text = "Exit"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="DeathPanel/TryAgainButton" to="DeathPanel/TryAgainButton" method="_on_TryAgainButton_pressed"]
+[connection signal="pressed" from="DeathPanel/ExitButton" to="DeathPanel/ExitButton" method="_on_ExitButton_pressed"]

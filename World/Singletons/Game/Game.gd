@@ -18,15 +18,27 @@ var min_fireball_speed = 20
 var fireball_speed = min_fireball_speed
 var fireball_speed_increase = 5
 
-func _ready():
+var best_score = 0
+
+var deathPanel
+
+func start():
+	call_deferred("start_deferred")
+
+func start_deferred():
+	current_level = -1
+	current_level_y_position = level_height
+	levels = []
+	fireball_speed = min_fireball_speed
+	
+	deathPanel = get_tree().get_root().find_node("DeathPanel", true, false)
+	deathPanel.visible = false
+	
 	randomize()
 	next_level()
 	next_level()
 
 func _process(delta):
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
-	
 	fireball_speed += fireball_speed_increase * delta
 
 func next_level():

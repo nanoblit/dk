@@ -6,6 +6,8 @@ var max_distance_from_player = 150
 # to detect if player is on the same level so they don't follow players on different levels
 var level = 0
 
+var coins = 2
+
 var attacking = false
 
 var damage = 1
@@ -77,7 +79,10 @@ func push(dir: int):
 	position.y -= 1
 	direction = dir
 	
-	
+func kill():
+	var player = get_tree().get_root().find_node("Player", true, false)
+	player.add_coins(coins)
+	disabled = true
 	
 	
 	
