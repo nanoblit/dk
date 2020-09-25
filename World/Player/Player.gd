@@ -120,15 +120,16 @@ func do_ladder_movement(delta):
 
 func add_coins(val):
 	coins += val
+	if coins >= 1000:
+		coins = 999
 	accumulated_coins += val
-	print("Coins: ", coins)
 	emit_signal("set_coins", coins)
 
 func remove_coins(val) -> bool:
 	if coins < val:
 		return false
 	coins -= val
-	print("Coins: ", coins)
+	emit_signal("set_coins", coins)
 	return true
 	
 func kill():

@@ -1,9 +1,10 @@
 extends Node2D
 
-onready var logo = $Logo
-onready var intro = $Intro
-onready var timer = $Timer
+export (Array, int) var timer_setup
 
+onready var logo = $Logo
+onready var intro = $IntroWalk
+onready var timer = $Timer
 
 func _ready() -> void:
 	logo.visible = true
@@ -19,6 +20,11 @@ func _on_Timer_timeout() -> void:
 	intro.frame = 0
 	intro.playing = true
 
-
-func _on_Intro_animation_finished() -> void:
-	get_tree().change_scene("res://Levels/World.tscn")
+func _on_IntroWalk_animation_finished():
+	$IntroWalk.visible = false
+	$IntroTalk.visible = true
+	for i in range(len(timer_setup)):
+		yield (get_tree().create_timer(timer_setup[i] / 4.0), "timeout")
+		$IntroTalk.frame += 1
+		if i == len(timer_setup)-1:
+			get_tree().change_scene("res://Levels/World.tscn")

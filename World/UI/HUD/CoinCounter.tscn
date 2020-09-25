@@ -45,19 +45,25 @@ animations = [ {
 
 [node name="CoinCounter" type="Node2D"]
 script = ExtResource( 26 )
+num_list = [ NodePath("Num1"), NodePath("Num2"), NodePath("Num3") ]
 
 [node name="Coin" type="AnimatedSprite" parent="."]
-position = Vector2( -42, 0 )
+position = Vector2( -50, 0 )
 frames = SubResource( 1 )
 playing = true
 centered = false
 
 [node name="Num1" type="AnimatedSprite" parent="."]
-position = Vector2( -15, 7 )
+position = Vector2( -23, 7 )
 frames = SubResource( 2 )
 centered = false
 
 [node name="Num2" type="AnimatedSprite" parent="."]
+position = Vector2( -15, 7 )
+frames = SubResource( 2 )
+centered = false
+
+[node name="Num3" type="AnimatedSprite" parent="."]
 position = Vector2( -7, 7 )
 frames = SubResource( 2 )
 centered = false
